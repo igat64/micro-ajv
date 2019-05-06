@@ -92,11 +92,8 @@ const handler = (req, res) => send(res, 200, 'Ok')
 
 module.exports = validate(handler)
 
-// routes.js
-const { router, post } = require('microrouter')
-const handler = require('./handler')
-
-const logApiErrors = handler => (req, res) =>
+// middleware.js
+module.exports.logApiErrors = handler => (req, res) =>
   handler(req, res).catch(err => {
     if (err.type === 'ApiError') {
       console.log(`ApiError: ${err.message}`)
@@ -104,5 +101,10 @@ const logApiErrors = handler => (req, res) =>
     throw err
   })
 
-module.exports = router(post('/foo', logApiErrors(handler)))
+// routes.js
+const { router, post } = require('microrouter')
+const { logApiErrors } = require('./middleware')
+const handler = require('./handler')
+
+module.exports = logApiErrors(router(post('/foo', handler)))
 ```
