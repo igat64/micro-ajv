@@ -8,7 +8,7 @@
     "url": "https://github.com/igat64/micro-ajv"
   },
   "scripts": {
-    "test": "jest"
+    "test": "./node_modules/.bin/jest"
   },
   "jest": {
     "clearMocks": true,
