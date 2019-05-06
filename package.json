@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "An Ajv (Another JSON Schema Validator) middleware for Micro to validate request body, query parameters and etc.",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/igat64/micro-ajv"
+  },
   "scripts": {
     "test": "jest"
   },
