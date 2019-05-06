@@ -93,7 +93,9 @@ const validate = microAjvValidation(schema, options)
 const handler = (req, res) => send(res, 200, 'Ok')
 
 module.exports = validate(handler)
+```
 
+```js
 // middleware.js
 module.exports.logApiErrors = handler => (req, res) =>
   handler(req, res).catch(err => {
@@ -102,7 +104,9 @@ module.exports.logApiErrors = handler => (req, res) =>
     }
     throw err
   })
+```
 
+```js
 // routes.js
 const { router, post } = require('microrouter')
 const { logApiErrors } = require('./middleware')
