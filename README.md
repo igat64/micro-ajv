@@ -1,4 +1,4 @@
-#micro-ajv
+# micro-ajv
 
 An [Ajv](https://github.com/epoberezkin/ajv) (Another JSON Schema Validator) middleware for [Micro](https://github.com/zeit/micro) to validate request body, query parameters and etc.
 
