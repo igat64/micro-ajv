@@ -107,7 +107,7 @@ module.exports.logApiErrors = handler => (req, res) =>
 ```
 
 ```js
-// routes.js
+// app.js
 const { router, post } = require('microrouter')
 const { logApiErrors } = require('./middleware')
 const handler = require('./handler')
