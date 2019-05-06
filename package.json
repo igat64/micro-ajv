@@ -1,0 +1,68 @@
+{
+  "name": "micro-ajv",
+  "version": "0.1.0",
+  "description": "An Ajv (Another JSON Schema Validator) middleware for Micro to validate request body, query parameters and etc.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "clearMocks": true,
+    "testEnvironment": "node"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "env": {
+      "es6": true
+    },
+    "extends": [
+      "plugin:prettier/recommended"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,json,md,yml}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
+    },
+    "concurrent": false
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false
+  },
+  "keywords": [
+    "ajv",
+    "micro",
+    "middleware"
+  ],
+  "author": "Igor Atroshkin",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^2.2.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.6",
+    "prettier": "^1.17.0"
+  },
+  "dependencies": {
+    "ajv": "^6.10.0",
+    "micro": "^9.3.4"
+  }
+}
