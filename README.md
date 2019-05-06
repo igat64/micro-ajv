@@ -1,6 +1,6 @@
 # micro-ajv
 
-An [Ajv](https://github.com/epoberezkin/ajv) (Another JSON Schema Validator) middleware for [Micro](https://github.com/zeit/micro) to validate request body, query parameters and etc.
+An [Ajv](https://github.com/epoberezkin/ajv) (Another [JSON Schema](https://json-schema.org/) Validator) middleware for [Micro](https://github.com/zeit/micro) to validate request body, url, query parameters and etc.
 
 ## Installation
 
@@ -34,7 +34,7 @@ It's possible to configure the middleware behavior by passing `options` object
 | `target`      | Path to data for validations (e.g. `query.accountId`). It validates request body by default                                                                                                                                                           | `"body"`                                          |
 | `errorMode`   | Enables change middleware behavior strategy when request validation fails. There are three possible modes: `reply` — respond with an error; `throw` — throw an exception; `inject` – call handler with injected validation errors to the `req` object | `"reply"`                                         |
 | `injectKey`   | Enables pass validation errors to the `req` object when error mode is `inject`                                                                                                                                                                        | `"microAjvErrors"`                                |
-| `createError` | Use this option if you need to change the default error object. As a first argument, it expects Ajv validation `errors`                                                                                                                               | `errors => micro.createError(400, 'Bad request')` |
+| `createError` | Use this option if you need to change the default error object. As a first argument, it expects Ajv validation [errors](https://www.npmjs.com/package/ajv#validation-errors)                                                                          | `errors => micro.createError(400, 'Bad request')` |
 
 #### Examples
 
