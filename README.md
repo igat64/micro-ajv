@@ -62,12 +62,10 @@ const microAjvValidation = require('micro-ajv')
 
 const schema = { type: 'string', maxLength: 1024 }
 const options = {
-  createError(errors) {
-    const error = Error(errors.map(error => error.message))
-    error.statusCode = 400
-    return error
-  },
+  createError: errors =>
+    Object.assign(Error(errors.map(error => error.message)), { statusCode: 400 }),
 }
+
 const validate = microAjvValidation(schema, options)
 
 const handler = (req, res) => send(res, 200, 'Ok')
@@ -85,12 +83,8 @@ const microAjvValidation = require('micro-ajv')
 const schema = { type: 'string', maxLength: 1024 }
 const options = {
   errorMode: 'throw',
-  createError() {
-    const error = Error('Payload validation failed')
-    error.type = 'ApiError'
-    error.statusCode = 400
-    return error
-  },
+  createError: errors =>
+    Object.assign(Error('Payload validation failed'), { type: 'ApiError', statusCode: 400 }),
 }
 const validate = microAjvValidation(schema, options)
 
