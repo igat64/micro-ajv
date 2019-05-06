@@ -2,6 +2,8 @@
 
 An [Ajv](https://github.com/epoberezkin/ajv) (Another [JSON Schema](https://json-schema.org/) Validator) middleware for [Micro](https://github.com/zeit/micro) to validate request body, url, query parameters and etc.
 
+[![CircleCI](https://circleci.com/gh/igat64/micro-ajv.svg?style=svg)](https://circleci.com/gh/igat64/micro-ajv)
+
 ## Installation
 
 ```bash
